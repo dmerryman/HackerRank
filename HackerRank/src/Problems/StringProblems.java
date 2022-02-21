@@ -1,6 +1,6 @@
 package Problems;
 
-import Utilities.Debugger;
+import java.io.PrintStream;
 
 public class StringProblems {
 
@@ -29,5 +29,28 @@ public class StringProblems {
 			}
 		}
 		return smallest + "\n" + largest;
+	}
+
+	public static void isPalindrome(String s)
+	{
+		boolean palindrome = true;
+		var charArray = s.toCharArray();
+		for (int i = 0; i < charArray.length / 2; i++)
+		{
+			if (charArray[i] != charArray[charArray.length - 1 - i])
+			{
+				palindrome = false;
+				break;
+			}
+		}
+		if (palindrome)
+		{
+			System.out.print("Yes");
+		}
+		else
+		{
+			System.out.print("No");
+		}
+		
 	}
 }
