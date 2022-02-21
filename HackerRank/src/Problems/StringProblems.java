@@ -53,4 +53,9 @@ public class StringProblems {
 		}
 		
 	}
+
+	public static boolean isAnagram(String a, String b)
+	{
+		
+	}
 }
