@@ -20,6 +20,13 @@ class StringProblemsTests {
 		System.setOut(new PrintStream(outputStreamCaptor));
 	}
 	
+	@Test
+	void splitWithRegexBasic()
+	{
+		StringProblems.splitWithRegex("He is a very very good boy, isn't he?");
+		assertEquals("10\nHe\nis\na\nvery\nvery\ngood\nboy\nisn\nt\nhe\n", outputStreamCaptor.toString());
+	}
+	
 	@AfterEach
 	public void tearDown() {
 		System.setOut(standardOut);

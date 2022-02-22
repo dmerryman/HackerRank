@@ -10,6 +10,17 @@ public class StringProblems {
 		// TODO Auto-generated constructor stub
 	}
 
+	public static void splitWithRegex(String s)
+	{
+		String regex = "[ !,?._'@]+";
+		String[] pieces = s.split(regex);
+		System.out.println(pieces.length);
+		for (var piece : pieces)
+		{
+			System.out.println(piece);
+		}
+	}
+	
 	public static String getSmallestAndLargest(String s, int k)
 	{
 		String smallest = s.substring(0, k);
