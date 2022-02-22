@@ -1,6 +1,8 @@
 package Problems;
 
 import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StringProblems {
 
@@ -56,6 +58,63 @@ public class StringProblems {
 
 	public static boolean isAnagram(String a, String b)
 	{
+		Map<Character, Integer> aDictionary = new HashMap<Character, Integer>();
+		Map<Character, Integer> bDictionary = new HashMap<Character, Integer>();
+		boolean isAnagram = true;
+		for (var c : a.toUpperCase().toCharArray())
+		{
+			if (!aDictionary.containsKey(c))
+			{
+				aDictionary.put(c, 1);
+			}
+			else
+			{
+				aDictionary.replace(c, aDictionary.get(c) + 1);
+			}
+		}
 		
+		for (var c : b.toUpperCase().toCharArray())
+		{
+			if (!bDictionary.containsKey(c))
+			{
+				bDictionary.put(c, 1);
+			}
+			else
+			{
+				bDictionary.replace(c, bDictionary.get(c) + 1);
+			}
+		}
+		
+		for (char key : aDictionary.keySet())
+		{
+			if (!bDictionary.containsKey(key))
+			{
+				isAnagram = false;
+				break;
+			}
+			else if (bDictionary.get(key) != aDictionary.get(key))
+			{
+				isAnagram = false;
+				break;
+			}
+		}
+		if (isAnagram)
+		{
+			for (char key : bDictionary.keySet())
+			{
+				if (!aDictionary.containsKey(key))
+				{
+					isAnagram = false;
+					break;
+				}
+				else if (aDictionary.get(key) != bDictionary.get(key))
+				{
+					isAnagram = false;
+					break;
+				}
+			}
+		}
+		
+		return isAnagram;
 	}
 }

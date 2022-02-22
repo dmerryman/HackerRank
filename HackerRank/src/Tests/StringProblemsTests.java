@@ -26,6 +26,13 @@ class StringProblemsTests {
 	} 
 	
 	@Test
+	void isAnagramBasic()
+	{
+		assertTrue(StringProblems.isAnagram("anagram", "margana"));
+		assertFalse(StringProblems.isAnagram("anagram", "mmargana"));
+	}
+	
+	@Test
 	void getSmallestAndLargestBasic() {
 		assertEquals("ava\nwel", StringProblems.getSmallestAndLargest("welcometojava", 3));
 	}
